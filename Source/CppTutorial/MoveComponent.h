@@ -25,6 +25,8 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
+	friend class FMoveComponentVisualizer;
+
 	//offset to move
 	UPROPERTY(EditAnywhere)
 	FVector MoveOffset;

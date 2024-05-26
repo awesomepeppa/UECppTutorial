@@ -10,6 +10,8 @@ public class CppTutorialEditorTarget : TargetRules
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V4;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_3;
-		ExtraModuleNames.Add("CppTutorial");
+		// ExtraModuleNames.Add("CppTutorial");
+		// ExtraModuleNames.Add("CppTutorialEditor");
+		ExtraModuleNames.AddRange( new string[] { "CppTutorial", "CppTutorialEditor" } );
 	}
 }
