@@ -27,6 +27,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetMoveDirection(int Direction);
 
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -50,7 +51,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	bool MoveEnable = true;
 
-	// On Extream reached event
+	// On Extreme reached event
 	UPROPERTY(BlueprintAssignable)
 	FOnMoveComponentReachEndPointSignature OnEndpointReached; 
 
