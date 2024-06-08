@@ -58,15 +58,20 @@ void UMoveComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorC
 
 	//set the current distance
 	CurDistance += DeltaTime * Speed * MoveDirection;
-	if (CurDistance >= MaxDistance || CurDistance <= 0.0f) {
-		// Invert direction
-		MoveDirection *= -1;
+	if (MoveEnable)
+	{
+		CurDistance += DeltaTime * Speed * MoveDirection;
+		if (CurDistance >= MaxDistance || CurDistance <= 0.0f)
+		{
+			// Invert direction
+			MoveDirection *= -1;
 
-		// Fire event
-		OnEndpointReached.Broadcast(CurDistance >= MaxDistance);
+			// Fire event
+			OnEndpointReached.Broadcast(CurDistance >= MaxDistance);
 
-		// Clamp distance
-		CurDistance = FMath::Clamp(CurDistance, 0.0f, MaxDistance);
+			// Clamp distance
+			CurDistance = FMath::Clamp(CurDistance, 0.0f, MaxDistance);
+		}
 	}
 
 	// compute and set current location
